@@ -1,0 +1,98 @@
+﻿@model WebApp.CadastroCliente.Dominio.Models.Cliente
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Cliente</h1>
+
+<hr />
+
+<form asp-action="Edit">
+
+    <input type="hidden" asp-for="Id" />
+    <div class="row">
+
+        <div class="col-2">
+
+            <label asp-for="CPF"></label>
+            <input asp-for="CPF" class="form-control" />
+
+        </div>
+        <div class="col-6">
+
+            <label asp-for="Nome"></label>
+            <input asp-for="Nome" class="form-control" />
+
+        </div>
+        <div class="col-2">
+
+            <label>Data de Nascimento</label>
+            @Html.TextBoxFor(x => x.DataNascimento, new { @class = "form-control" })
+
+
+        </div>
+
+        <div class="col-3">
+
+            @Html.LabelFor(x => x.Sexo)
+            <div class="form-check">
+                <div>
+                    <input type="radio" asp-for="Sexo" value="Feminino" name="Sexo" /> Feminino
+
+                    <input type="radio" value="Masculino" asp-for="Sexo" name="Sexo" /> Masculino
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <hr />
+        <div class="col-2">
+            CEP
+            <input asp-for="CEP" type="text" id="cep" class="form-control" name="Cep" />
+
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <label></label>
+                <button type="button" id="botao" class="btn btn-info">Buscar</button>
+            </div>
+        </div>
+
+
+        <div class="col-4">
+            Rua
+            <input asp-for="Rua" type="text" id="rua" name="Rua" class="form-control" />
+        </div>
+        <div class="col-3">
+            Cidade
+            <input type="text" asp-for="Cidade" id="cidade" name="Cidade" class="form-control" />
+        </div>
+        <div class="2">
+            Estado
+            <input type="text" id="estado" asp-for="Estado" name="Estado" class="form-control" />
+        </div>
+        <div class="col-2">
+            Bairro
+            <input type="text" id="bairro" name="Bairro" asp-for="Bairro" class="form-control" />
+        </div>
+    </div>
+    <label></label>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+
+</form>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+
+    <script src="~/js/cep.js"></script>
+    <script src="~/js/mask.js"></script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

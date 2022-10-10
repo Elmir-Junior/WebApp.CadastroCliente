@@ -1,0 +1,83 @@
+﻿@model WebApp.CadastroCliente.Dominio.Models.Cliente
+
+<link rel="stylesheet" href="~/css/jquery.dataTables.min.css" />
+
+
+<form action="@Url.Action("Create","Cliente")" method="POST" enctype="multipart/form-data">
+
+    <div class="row">
+        <div class="col-2">
+
+            @Html.LabelFor(x => x.CPF)
+
+            @Html.TextBoxFor(x => x.CPF, new { @class = "form-control" })
+
+
+        </div>
+        <div class="col-6">
+
+            @Html.LabelFor(x => x.Nome)
+
+            @Html.TextBoxFor(x => x.Nome, new { @class = "form-control" })
+
+
+        </div>
+        <div class="col-2">
+            <div>
+                <label>Data De Nascimento:</label>
+
+                @Html.TextBoxFor(x => x.DataNascimento, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-3">
+            @Html.LabelFor(x => x.Sexo)
+            <div class="form-check">
+                <div>
+                    <input type="radio" value="Feminino" name="Sexo" /> Feminino
+
+                    <input type="radio" value="Masculino" name="Sexo" /> Masculino
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-2">
+            <label>CEP</label>
+            <input type="text" id="cep" class="form-control" name="Cep" />
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <label></label>
+                <button type="button" id="botao" class="btn btn-info">Buscar</button>
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Rua</label>
+            <input type="text" id="rua" name="Rua" class="form-control" />
+        </div>
+
+        <div class="col-3">
+            Cidade
+            <input type="text" id="cidade" name="Cidade" class="form-control"/>
+        </div>
+
+        <div class="col-2">
+            Estado
+            <input type="text" id="estado" name="Estado" class="form-control"/>
+        </div>
+
+        <div class="col-2">
+            Bairro
+            <input type="text" id="bairro" name="Bairro" class="form-control" />
+        </div>
+    </div>
+    <label></label>
+    <div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+</form>
+@section scripts{
+    <script src="~/js/cep.js"></script>
+    <script src="~/js/mask.js"></script>
+}

@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebApp.CadastroCliente.Data\WebApp.CadastroCliente.Data.csproj" />
+    <ProjectReference Include="..\WebApp.CadastroCliente.Dominio\WebApp.CadastroCliente.Dominio.csproj" />
+  </ItemGroup>
+
+</Project>
